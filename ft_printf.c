@@ -10,8 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-int ft_printf(const char *, ...)
+int ft_printf(const char *str, ...)
 {
-    va
+    int i;
+    int count;
+    va_list args;
+
+    i = 0;
+    count = 0;
+    va_start(args, str);
+    while (str[i])
+    {
+        if (str[i] == '%' && str[i + 1])
+        {
+            i++;
+            if (str[i] == 'c')
+        }
+    }
 }
