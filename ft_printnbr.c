@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 00:05:00 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/13 01:28:03 by mabdelha         ###   ########.fr       */
+/*   Created: 2024/11/13 01:20:58 by mabdelha          #+#    #+#             */
+/*   Updated: 2024/11/13 01:26:20 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-int ft_printf(const char *str, ...);
-void ft_putchr(char c);
-void ft_putstr(char *str);
-void ft_putnbr(int nbr);
-#endif
+void ft_putnbr(int nbr)
+{
+    if (nbr == -2147483648)
+        ft_putstr("–2147483648");
+    else if (nbr < 0)
+    {
+        ft_putchr('-');
+        ft_putnbr(-nbr);
+    }
+    else if (nbr > 9)
+    {
+        ft_putnbr(nbr / 10);
+    }
+    ft_putchr((nbr % 10) + 48);
+}

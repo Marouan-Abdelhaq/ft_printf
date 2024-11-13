@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 00:05:00 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/13 01:28:03 by mabdelha         ###   ########.fr       */
+/*   Created: 2024/11/13 01:03:48 by mabdelha          #+#    #+#             */
+/*   Updated: 2024/11/13 23:25:33 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+int ft_putchr(char c)
+{
+    return (write (1, &c, 1));
+}
 
-int ft_printf(const char *str, ...);
-void ft_putchr(char c);
-void ft_putstr(char *str);
-void ft_putnbr(int nbr);
-#endif
+int ft_putstr(char *str)
+{
+    int i;
+    
+    i = 0;
+    while (str[i])
+    {
+        ft_putchr(str[i]);
+        i++;
+    }
+    return (i);
+}

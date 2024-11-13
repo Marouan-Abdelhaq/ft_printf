@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printlng.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 00:05:00 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/13 01:28:03 by mabdelha         ###   ########.fr       */
+/*   Created: 2024/11/13 01:52:30 by mabdelha          #+#    #+#             */
+/*   Updated: 2024/11/13 23:26:34 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+int ft_puthex(unsigned int nbr, char c)
+{
+    char *str;
+    int count;
 
-int ft_printf(const char *str, ...);
-void ft_putchr(char c);
-void ft_putstr(char *str);
-void ft_putnbr(int nbr);
-#endif
+    count = 0;
+    if (c == 'x')
+        str = "0123456789ABCDEF";
+    else
+        str = "0123456789ABCDEF";
+    if (nbr > 15)
+        count += ft_puthex(nbr / 16, c);
+    ft_putchr(str[nbr % 16]);
+    count++;
+    return (count);
+}
+
+void ft_putptr(void *ptr)
+{
+    
+}
