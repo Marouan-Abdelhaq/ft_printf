@@ -6,7 +6,7 @@
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:02:11 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/14 00:19:51 by mabdelha         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:34:26 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,40 +18,19 @@ int ft_checktype(char c, va_list args)
 
     count = 0;
     if (c == 'c')
-    {
-        ft_putchr(va_arg(args, int));
-        count++;
-    }
+        count += ft_putchr(va_arg(args, int));
     else if (c == 's')
-    {
-        ft_putstr(va_arg(args, char *));
-        count++;
-    }
+        count += ft_putstr(va_arg(args, char *));
     else if (c == 'd' || c == 'i')
-    {
-        ft_putnbr(va_arg(args, int));
-        count++;
-    }
+        count += ft_putnbr(va_arg(args, int));
     else if (c == 'u')
-    {
-        ft_putnbr(va_arg(args, unsigned int));
-        count++;
-    }
+        count += ft_putund(va_arg(args, unsigned int));
     else if (c == 'x' || c == 'X')
-    {
-        ft_puthex(va_arg(args, unsigned int), c);
-        count++;
-    }
+        count += ft_puthex(va_arg(args, unsigned int), c);
     else if (c == 'p')
-    {
-        ft_putptr(va_arg(args, void *));
-        count++;
-    }
+        count += ft_putptr(va_arg(args, void *));
     else if (c == '%')
-    {
-        ft_putchr('%');
-        count++;
-    }
+        count += ft_putchr('%');
     return (count);
 }
 int ft_printf(const char *str, ...)

@@ -6,7 +6,7 @@
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:52:30 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/13 23:26:34 by mabdelha         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:05:10 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int ft_putptr(void *ptr)
 {
    int count;
 
+    if (!ptr)
+        return  ft_putstr("(nil)");
     count = 0;
     ft_putstr("0x");
     count += 2;
