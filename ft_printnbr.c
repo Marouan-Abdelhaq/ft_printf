@@ -19,21 +19,21 @@ int	ft_putnbr(int nbr)
 	count = 0;
 	if (nbr == -2147483648)
 	{
-		ft_putstr("–2147483648");
-		count += 11;
+		count += ft_putstr("–2147483648");
 	}
-	else if (nbr < 0)
+	else 
 	{
-		ft_putchr('-');
-		count++;
-		ft_putnbr(-nbr);
+		if (nbr < 0)
+		{
+			count += ft_putchr('-');
+			nbr = -nbr;
+		}
+		if (nbr > 9)
+		{
+			count += ft_putnbr(nbr / 10);
+		}
+		count += ft_putchr((nbr % 10) + 48);
 	}
-	else if (nbr > 9)
-	{
-		count += ft_putnbr(nbr / 10);
-	}
-	ft_putchr((nbr % 10) + 48);
-	count++;
 	return (count);
 }
 
