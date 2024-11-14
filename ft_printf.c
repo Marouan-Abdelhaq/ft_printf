@@ -32,7 +32,22 @@ int ft_checktype(char c, va_list args)
         ft_putnbr(va_arg(args, int));
         count++;
     }
-    else if (c == 'p');
+    else if (c == 'u')
+    {
+        ft_putunbr(va_arg(args, unsigned int));
+        count++;
+    }
+    else if (c == 'x' || c == 'X')
+    {
+        ft_puthex(va_arg(args, unsigned int), c);
+        count++;
+    }
+    else if (c == 'p')
+    {
+        ft_putptr(va_arg(args, void *));
+        count++;
+    }
+    return (count);
 }
 int ft_printf(const char *str, ...)
 {

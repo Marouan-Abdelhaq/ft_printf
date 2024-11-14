@@ -12,24 +12,32 @@
 
 #include "ft_printf.h"
 
-int ft_puthex(unsigned int nbr, char c)
+int ft_puthex(unsigned long nbr, char c)
 {
     char *str;
     int count;
 
     count = 0;
     if (c == 'x')
-        str = "0123456789ABCDEF";
+        str = "0123456789abcdef";
     else
         str = "0123456789ABCDEF";
     if (nbr > 15)
+    {
         count += ft_puthex(nbr / 16, c);
+    }
     ft_putchr(str[nbr % 16]);
     count++;
     return (count);
 }
 
-void ft_putptr(void *ptr)
+int ft_putptr(void *ptr)
 {
-    
+   int count;
+
+    count = 0;
+    ft_putstr("0x");
+    count += 2;
+    count += ft_puthex((unsigned long)ptr, 'x');
+    return (count); 
 }

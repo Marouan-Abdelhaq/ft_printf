@@ -12,18 +12,41 @@
 
 #include "ft_printf.h"
 
-void ft_putnbr(int nbr)
+int ft_putnbr(int nbr)
 {
+    int count;
+
+    count = 0;
     if (nbr == -2147483648)
+    {
         ft_putstr("–2147483648");
+        count += 11;
+    }
     else if (nbr < 0)
     {
         ft_putchr('-');
+        count++;
         ft_putnbr(-nbr);
     }
     else if (nbr > 9)
     {
-        ft_putnbr(nbr / 10);
+        count += ft_putnbr(nbr / 10);
     }
     ft_putchr((nbr % 10) + 48);
+    count++;
+    return (count);
+}
+
+void ft_putund(unsigned int nbr)
+{
+    int count;
+
+    count = 0;
+    if (nbr > 9)
+    {
+        count += ft_putnbr(nbr / 10);
+    }
+    ft_putchr((nbr % 10) + 48);
+    count++;
+    return (count);
 }
