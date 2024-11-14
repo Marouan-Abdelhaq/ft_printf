@@ -12,24 +12,24 @@
 
 #include "ft_printf.h"
 
-int ft_putchr(char c)
+int	ft_putchr(char c)
 {
-    return (write (1, &c, 1));
+	return (write(1, &c, 1));
 }
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int i;
-    int count;
-    
-    count = 0;
-    i = 0;
-    if(!str)
-        str = "(null)";
-    while (str[i])
-    {
-        count += ft_putchr(str[i]);
-        i++;
-    }
-    return (i);
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	if (!str)
+		str = "(null)";
+	while (str[i])
+	{
+		count += ft_putchr(str[i]);
+		i++;
+	}
+	return (i);
 }
