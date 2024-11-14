@@ -18,7 +18,10 @@
 #include <stdlib.h>
 
 int ft_printf(const char *str, ...);
-void ft_putchr(char c);
-void ft_putstr(char *str);
-void ft_putnbr(int nbr);
+int ft_putchr(char c);
+int ft_putstr(char *str);
+int ft_putnbr(int nbr);
+int ft_putund(unsigned int nbr);
+int ft_puthex(unsigned long nbr, char c);
+int ft_putptr(void *ptr);
 #endif

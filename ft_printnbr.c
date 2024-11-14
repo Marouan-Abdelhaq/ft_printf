@@ -37,7 +37,7 @@ int ft_putnbr(int nbr)
     return (count);
 }
 
-void ft_putund(unsigned int nbr)
+int ft_putund(unsigned int nbr)
 {
     int count;
 

@@ -34,7 +34,7 @@ int ft_checktype(char c, va_list args)
     }
     else if (c == 'u')
     {
-        ft_putunbr(va_arg(args, unsigned int));
+        ft_putnbr(va_arg(args, unsigned int));
         count++;
     }
     else if (c == 'x' || c == 'X')
@@ -47,28 +47,36 @@ int ft_checktype(char c, va_list args)
         ft_putptr(va_arg(args, void *));
         count++;
     }
+    else if (c == '%')
+    {
+        ft_putchr('%');
+        count++;
+    }
     return (count);
 }
 int ft_printf(const char *str, ...)
 {
     int i;
+    int count;
     va_list args;
 
     i = 0;
+    count = 0;
     va_start(args, str);
     while (str[i])
     {
         if (str[i] == '%' && str[i + 1])
         {
             i++;
-            ft_checktype(str[i], args);
+            count += ft_checktype(str[i], args);
+        }
+        else
+        {
+            ft_putchr(str[i]);
+            count++;
         }
         i++;
     }
-}
-
-int main()
-{
-    ft_printf("%d", 124578);
-    return 0;
+    va_end(args);
+    return (count);
 }
