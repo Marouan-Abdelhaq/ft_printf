@@ -6,7 +6,7 @@
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:20:58 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/14 11:42:04 by mabdelha         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:36:09 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_putnbr(int nbr)
 	}
 	else 
 	{
+<<<<<<< HEAD
 		if (nbr < 0)
 		{
 			count += ft_putchr('-');
@@ -34,6 +35,18 @@ int	ft_putnbr(int nbr)
 		}
 		count += ft_putchr((nbr % 10) + 48);
 	}
+=======
+		ft_putchr('-');
+		count++;
+		nbr = -nbr;
+	}
+	if (nbr > 9)
+	{
+		count += ft_putnbr(nbr / 10);
+	}
+	ft_putchr((nbr % 10) + 48);
+	count++;
+>>>>>>> 3ac716f (mod)
 	return (count);
 }
 

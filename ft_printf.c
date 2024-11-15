@@ -6,7 +6,7 @@
 /*   By: mabdelha <mabdelha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 00:02:11 by mabdelha          #+#    #+#             */
-/*   Updated: 2024/11/15 14:26:31 by mabdelha         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:40:43 by mabdelha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchr(str[i]);
-			count++;
+			return (-1);
 		}
 		i++;
 	}
