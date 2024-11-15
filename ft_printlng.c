@@ -33,13 +33,8 @@ int	ft_puthex(unsigned long nbr, char c)
 
 int	ft_putptr(void *ptr)
 {
-	int	count;
-
 	if (!ptr)
 		return (ft_putstr("(nil)"));
-	count = 0;
 	ft_putstr("0x");
-	count += 2;
-	count += ft_puthex((unsigned long)ptr, 'x');
-	return (count);
+	return (2 + ft_puthex((unsigned long)ptr, 'x'));
 }

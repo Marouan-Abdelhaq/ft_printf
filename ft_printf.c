@@ -52,7 +52,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			return (-1);
+			count += ft_putchr(str[i]);
 		}
 		i++;
 	}
