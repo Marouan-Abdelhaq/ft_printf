@@ -26,7 +26,7 @@ int	ft_checktype(char c, va_list args)
 	else if (c == 'u')
 		count += ft_putund(va_arg(args, unsigned int));
 	else if (c == 'x' || c == 'X')
-		count += ft_puthex(va_arg(args, unsigned long), c);
+		count += ft_puthex(va_arg(args, unsigned int), c);
 	else if (c == 'p')
 		count += ft_putptr(va_arg(args, void *));
 	else if (c == '%')

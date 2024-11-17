@@ -31,5 +31,5 @@ int	ft_putstr(char *str)
 		count += ft_putchr(str[i]);
 		i++;
 	}
-	return (i);
+	return (count);
 }
