@@ -45,8 +45,10 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (str[i] == '%')
 		{
+			if (str[i + 1] == '\0')
+				return (-1);
 			i++;
 			count += ft_checktype(str[i], args);
 		}
